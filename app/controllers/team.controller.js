@@ -20,7 +20,7 @@ exports.create = (req, res) => {
         international_champion: req.body.international_champion ? req.body.international_champion: false
     }
 
-    Team.create(item)
+    Team.create(team)
     .then(data => {
         res.send(data)
     })
