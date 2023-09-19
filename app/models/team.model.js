@@ -3,8 +3,12 @@ module.exports = (sequelize, Sequelize) => {
         name: {
             type: Sequelize.STRING
         },
-        country: {
-            type: Sequelize.STRING
+        id_league: {
+            type: Sequelize.INTEGER,
+            references: {
+                model: 'leagues',
+                key: 'id'
+              }
         },
         stadium: {
             type: Sequelize.STRING
@@ -21,6 +25,7 @@ module.exports = (sequelize, Sequelize) => {
         international_champion: {
             type: Sequelize.BOOLEAN
         },
+        
     
 });
 
