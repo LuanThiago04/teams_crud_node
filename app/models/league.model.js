@@ -3,9 +3,6 @@ module.exports = (sequelize, Sequelize) => {
         name: {
             type: Sequelize.STRING
         },
-        id_league: {
-            type: Sequelize.INTEGER
-        },
         country: {
             type: Sequelize.STRING
         },

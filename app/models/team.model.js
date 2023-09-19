@@ -3,6 +3,10 @@ module.exports = (sequelize, Sequelize) => {
         name: {
             type: Sequelize.STRING
         },
+        country: {
+            type: Sequelize.STRING
+        
+        },
         stadium: {
             type: Sequelize.STRING
         },
