@@ -14,7 +14,7 @@ exports.create = (req, res) => {
         name: req.body.name,
         country: req.body.country,
         quantity_teams: req.body.quantity_teams,
-        league_value: req.boleague,
+        league_value: req.body.league_value,
         is_top5: req.body.is_top5 ? req.body.is_top5: false
     }
 

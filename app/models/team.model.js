@@ -5,7 +5,6 @@ module.exports = (sequelize, Sequelize) => {
         },
         country: {
             type: Sequelize.STRING
-        
         },
         stadium: {
             type: Sequelize.STRING
@@ -22,13 +21,13 @@ module.exports = (sequelize, Sequelize) => {
         international_champion: {
             type: Sequelize.BOOLEAN
         },
-        id_league: {
-            type: Sequelize.INTEGER,
-            references: {
-                model: 'league',
-                key: 'id'
-        }
-        },
+        // id_league: {
+        //     type: Sequelize.INTEGER,
+        //     references: {
+        //         model: 'league',
+        //         key: 'id'
+        // }
+        // },
     
 });
 

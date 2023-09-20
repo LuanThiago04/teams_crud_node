@@ -23,6 +23,7 @@ db.sequelize.sync()
     });
 
     require("./app/routes/team.routes")(app);
+    require("./app/routes/league.routes")(app);
 
 app.get("/", (req,res)=>{
     res.json({message: 'Hello World!'})
