@@ -1,3 +1,4 @@
+const { teams } = require("../models");
 const db = require ("../models");
 const League = db.leagues;
 const Op = db.Sequelize.Op;
@@ -43,6 +44,22 @@ exports.findAll = (req, res) => {
         res.status(500).send({
             message: 
                 err.message || "Deu b.o na listagem das ligas."
+        });
+    });
+};
+
+exports.findTeamsInLeague = (req, res) => {
+    const name = req.body.name;
+    var condition = name ? { name: {[Op.Like]: `%${name}%`} }: null;
+
+    League.findTeamsInLeague({where: condition, include:['teams']})
+    .then(data => {
+        res.send(data)
+    })
+    .catch(err => {
+        res.status(500).send({
+            message:
+            err.message || "Não consegui achar os times da liga."
         });
     });
 };

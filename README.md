@@ -26,6 +26,7 @@ Time: Wolverhampton;
         "id_leagues": 1,
         "international_champion": false
 }
+TIme: Chelsea
 {
         "name": "Chelsea",
         "country": "Inglaterra",

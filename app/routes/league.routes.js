@@ -5,7 +5,9 @@ module.exports = app => {
 
     router.post("/", leagues.create);
 
-    router.get("/", leagues.findAll);
+    router.get("/", leagues.findTeamsInLeague);
+
+     router.get("/teams_in_league", leagues.findTeamsInLeague);
 
     router.get("/is_top5", leagues.findAllis_top5);
 
