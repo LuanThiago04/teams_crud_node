@@ -1,35 +1,38 @@
-const cors = require("cors");
 const express = require("express");
+const cors = require("cors");
+
 const app = express();
 
-
 var corsOptions = {
-    origin: "http://localhost:8081"
+    origin: "http://localhost:8088"
 }
-    
-    app.use(cors(corsOptions));
+
+app.use(cors(corsOptions));
 
 app.use(express.json());
 
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({extended: true}));
 
+//avisa o resultado da conexão do banco
 const db = require("./app/models");
 db.sequelize.sync()
     .then(() => {
-        console.log("Banco Conectado!");
+        console.log("Banco conectado!");
     })
     .catch((err) => {
         console.log("Falha ao acessar banco de dados: " + err.message);
     });
 
-    require("./app/routes/team.routes")(app);
-    require("./app/routes/league.routes")(app);
+require("./app/routes/team.routes")(app);
+require("./app/routes/league.routes")(app);    
 
-app.get("/", (req,res)=>{
+app.get("/", (req, res) => {
     res.json({message: 'Hello World!'})
 });
 
-const port = process.env.port || 8088;
-app.listen(port, () => {
-    console.log(`Server funcionando na porta ${port}.`);
-})
+const PORT = process.env.PORT || 8088;
+
+//vigia/escuta tudo que acontecer na PORT
+app.listen(PORT, () => {
+    console.log(`Server funcionando na porta ${PORT}.`)
+});
